@@ -6,62 +6,57 @@
 
 \begin{document}
 % \maketitle
+\twocolumn[
+\begin{center}
+	{\huge \uppercase{University math \hspace{0.3cm} Cheatsheet}}\\
+\end{center}
+% \vspace{0.2cm}
+]
 
 \section{Calculus}
-
 \begin{definition}[Derivative]
-  $f'(x) = \lim_{h \to 0} \dfrac{f(x+h) - f(x)}{h}$
+	\\
+	$\displaystyle f'(x) = \lim_{h \to 0} \dfrac{f(x+h) - f(x)}{h} = \frac{d}{dx}f(x)$ \\
+	Differentiation being a linear operation.
 \end{definition}
 
-\begin{theorem}[Fundamental theorem]
-  If $f$ is continuous on $[a,b]$ and $F' = f$, then
-  \[ \int_a^b f(x)\,\mathrm{d}x = F(b) - F(a). \]
-\end{theorem}
-
 \begin{example}
-  $\displaystyle \int_0^1 x^2\,\mathrm{d}x = \frac{1}{3}$.
+	List of derivatives and antiderivatives:
+
+	\vspace{2mm}
+	\begin{tabular}{lcc}
+		\toprule
+		$f(x)$ & $f'(x)$ & $F(x)$ \\
+		\midrule
+		$x^a$		& $ax^{a-1}$	& $\frac{1}{a+1}x^{a+1}$ \\
+		$\sin(x)$	& $\cos(x)$		& $-\cos(x)$ \\
+		$\cos(x)$	& $-\sin(x)$	& $\sin(x)$ \\
+		$\tan(x)$	& $\dfrac{1}{\cos^2(x)}$	& $-\ln|\cos(x)|$ \\
+		$e^x$		& $e^x$			& $e^x$ \\
+		$a^x, a>0$		& $a^x\ln(a)$	& $\frac{1}{\ln(x)}a^x$ \\
+		$\frac{1}{x}$& $-\frac{1}{x^2}$ & $\ln(x)$\\
+		$\ln(x)$	& $\frac{1}{x}$	& $x\ln(x) - x$ \\
+		$\arcsin(x)$ & $\dfrac{1}{\sqrt{1-x^2}}$ & ? \\
+		$\arccos(x)$ & $-\dfrac{1}{\sqrt{1-x^2}}$ & ? \\
+		$\arctan(x)$ & $\dfrac{1}{1+x^2}$ & ? \\
+
+		\bottomrule
+	\end{tabular}
 \end{example}
 
-\begin{remark}
-  Links are coloured too: see \url{https://www.tudelft.nl} or
-  Section~\ref{sec:lists}.
-\end{remark}
+\begin{example}
+	Differentiation/Integration rules:
 
-\section{Lists and tables}\label{sec:lists}
+	Chain rule: $(f \circ g)'(x) = [f(g(x))]' = f'(g(x))g'(x)$ 
 
-\begin{multicols}{2}
-\begin{itemize}
-  \item Pure black background
-  \item White text
-  \begin{itemize}
-    \item Nested item
-  \end{itemize}
-\end{itemize}
+	Product rule: $[f(x)g(x)]' = f'(x)g(x) + f(x)g'(x) $ 
 
-\begin{enumerate}
-  \item First
-  \item Second
-\end{enumerate}
-\end{multicols}
+	Quotient rule: $\dfrac{f(x)}{g(x)} = \dfrac{f'(x)g(x) - f(x)g'(x)}{(g(x))^2} $ 
+	
+\end{example}
 
-\begin{table}[h]
-  \centering
-  \begin{tabular}{lcc}
-    \toprule
-    Function & Derivative & Integral \\
-    \midrule
-    $\sin x$ & $\cos x$ & $-\cos x$ \\
-    $e^x$    & $e^x$    & $e^x$ \\
-    \bottomrule
-  \end{tabular}
-  \caption{A small table.}
-\end{table}
 
-\subsection{Matrices}
+% \input{examples.tex}
 
-\[
-  A = \begin{pmatrix} a & b \\ c & d \end{pmatrix},
-  \qquad \det A = ad - bc.
-\]
 
 \end{document}
