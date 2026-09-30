@@ -10,6 +10,7 @@
 %%   oledbg oledfg oledmuted oledaccent oledgreen oledamber oledpurple oledred
 %%
 %% Environments: theorem, definition, example, remark   (optional [title])
+%%               topic[<colour>]{<title>}              (general, title only)
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{oled}[2026/09/19 v1.0 Pitch-black class for OLED screens]
 
@@ -98,6 +99,32 @@
 \oled@newbox{definition}{Definition}{oledgreen}
 \oled@newbox{example}{Example}{oledamber}
 \oled@newbox{remark}{Remark}{oledpurple}
+
+% A general box with just a title, on its own line: \begin{topic}[<colour>]{<title>}
+\NewTColorBox{topic}{O{oledaccent} m}{%
+  oledbox=#1,
+  before upper={\textcolor{#1}{\bfseries #2}\par},
+}
+
+% The same box as a sectioning command: \block[<colour>]{<title>} opens a box
+% that runs until \endblock, the next \block, \section, \subsection or
+% \end{document}.
+\newif\ifoled@blockopen
+\newcommand{\oled@closeblock}{%
+  \ifoled@blockopen\expandafter\oled@doclose\fi
+}
+\newcommand{\oled@doclose}{\global\oled@blockopenfalse\end{topic}}
+\NewDocumentCommand{\block}{O{oledaccent} m}{%
+  \oled@closeblock
+  \begin{topic}[#1]{#2}%
+  \global\oled@blockopentrue
+  \ignorespaces
+}
+% End the open block by hand, e.g. to write plain text after it.
+\def\endblock{\oled@closeblock}
+\AddToHook{cmd/section/before}{\oled@closeblock}
+\AddToHook{cmd/subsection/before}{\oled@closeblock}
+\AddToHook{enddocument}{\oled@closeblock}
 
 % ---------------------------------------------------------------- hyperlinks
 \RequirePackage{hyperref}

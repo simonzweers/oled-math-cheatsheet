@@ -13,48 +13,7 @@
 % \vspace{0.2cm}
 ]
 
-\section{Calculus}
-\begin{definition}[Derivative]
-	\\
-	$\displaystyle f'(x) = \lim_{h \to 0} \dfrac{f(x+h) - f(x)}{h} = \frac{d}{dx}f(x)$ \\
-	Differentiation being a linear operation.
-\end{definition}
-
-\begin{example}
-	List of derivatives and antiderivatives:
-
-	\vspace{2mm}
-	\begin{tabular}{lcc}
-		\toprule
-		$f(x)$ & $f'(x)$ & $F(x)$ \\
-		\midrule
-		$x^a$		& $ax^{a-1}$	& $\frac{1}{a+1}x^{a+1}$ \\
-		$\sin(x)$	& $\cos(x)$		& $-\cos(x)$ \\
-		$\cos(x)$	& $-\sin(x)$	& $\sin(x)$ \\
-		$\tan(x)$	& $\dfrac{1}{\cos^2(x)}$	& $-\ln|\cos(x)|$ \\
-		$e^x$		& $e^x$			& $e^x$ \\
-		$a^x, a>0$		& $a^x\ln(a)$	& $\frac{1}{\ln(x)}a^x$ \\
-		$\frac{1}{x}$& $-\frac{1}{x^2}$ & $\ln(x)$\\
-		$\ln(x)$	& $\frac{1}{x}$	& $x\ln(x) - x$ \\
-		$\arcsin(x)$ & $\dfrac{1}{\sqrt{1-x^2}}$ & ? \\
-		$\arccos(x)$ & $-\dfrac{1}{\sqrt{1-x^2}}$ & ? \\
-		$\arctan(x)$ & $\dfrac{1}{1+x^2}$ & ? \\
-
-		\bottomrule
-	\end{tabular}
-\end{example}
-
-\begin{example}
-	Differentiation/Integration rules:
-
-	Chain rule: $(f \circ g)'(x) = [f(g(x))]' = f'(g(x))g'(x)$ 
-
-	Product rule: $[f(x)g(x)]' = f'(x)g(x) + f(x)g'(x) $ 
-
-	Quotient rule: $\dfrac{f(x)}{g(x)} = \dfrac{f'(x)g(x) - f(x)g'(x)}{(g(x))^2} $ 
-	
-\end{example}
-
+\input{intro-to-ee.tex}
 
 % \input{examples.tex}
 

@@ -1,0 +1,96 @@
+
+\section{Intro to EE}
+
+\begin{topic}{Number Sets}
+	$\displaystyle \mathbb{N}$ : Natural numbers $\left\{ 0, 1, 2, \dots \right\}$ \\ 
+	$\displaystyle \mathbb{Z}$ : Integer numbers $\left\{ \dots, -2, -1, 0, 1, 2, \dots \right\}$ \\ 
+	$\displaystyle \mathbb{Q} = \left\{ \frac{p}{q} : p \in \mathbb{Z},\ q \in \mathbb{Z}\setminus\{0\} \right\} $ : Rational numbers \\
+	$\displaystyle \mathbb{R}$ : Real numbers $\pi, e$ \\
+	$\mathbb{C} = \{ a + bi \mid a, b \in \mathbb{R} \}, i^2 = -1$ : Complex numbers \\ 
+
+	$\mathbb{N} \subset \mathbb{Z} \subset \mathbb{Q} \subset \mathbb{R} \subset \mathbb{C}$
+
+\end{topic}
+
+\begin{topic}{Derivative}
+	$\displaystyle f'(x) = \lim_{h \to 0} \dfrac{f(x+h) - f(x)}{h} = \frac{d}{dx}f(x)$ \\
+	Differentiation being a linear operation.
+\end{topic}
+
+\begin{topic}{Derivatives and antiderivatives}
+	\begin{tabular}{lcc}
+		\toprule
+		$f(x)$ & $f'(x)$ & $F(x)$ \\
+		\midrule
+		$x^a$		& $ax^{a-1}$	& $\frac{1}{a+1}x^{a+1}$ \\
+		$\sin(x)$	& $\cos(x)$		& $-\cos(x)$ \\
+		$\cos(x)$	& $-\sin(x)$	& $\sin(x)$ \\
+		$\tan(x)$	& $\dfrac{1}{\cos^2(x)}$	& $-\ln|\cos(x)|$ \\
+		$e^x$		& $e^x$			& $e^x$ \\
+		$a^x, a>0$		& $a^x\ln(a)$	& $\frac{1}{\ln(a)}a^x$ \\
+		$\frac{1}{x}$& $-\frac{1}{x^2}$ & $\ln(x)$\\
+		$\ln(x)$	& $\frac{1}{x}$	& $x\ln(x) - x$ \\
+		$\arcsin(x)$ & $\dfrac{1}{\sqrt{1-x^2}}$ & ? \\
+		$\arccos(x)$ & $-\dfrac{1}{\sqrt{1-x^2}}$ & ? \\
+		$\arctan(x)$ & $\dfrac{1}{1+x^2}$ & ? \\
+
+		\bottomrule
+	\end{tabular}
+\end{topic}
+
+\begin{topic}{Differentiation rules}
+	\block[oledgreen]{Chain Rule}
+	 $(f \circ g)'(x) = [f(g(x))]' = f'(g(x))g'(x)$ 
+
+	\block[oledgreen]{Product Rule}
+	$[f(x)g(x)]' = f'(x)g(x) + f(x)g'(x) $ 
+
+	\block[oledgreen]{Quitient Rule}
+	$\left[\dfrac{f(x)}{g(x)}\right]' = \dfrac{f'(x)g(x) - f(x)g'(x)}{(g(x))^2} $ 
+
+	\endblock
+\end{topic}
+
+\begin{topic}{Advanced Integration techniques}
+	\block[oledgreen]{Substitution Method}
+	$\dfrac{du}{dx} = g'(x) \implies du = g'(x)dx $ \\
+	Definite integrals: $\displaystyle \int_a^b f(g(x))\cdot g'(x)dx = \int_{g(a)}^{g(b)}f(u)du $ \\ 
+	Indefinite integrals: $\displaystyle \int f(g(x))\cdot g'(x)dx = \int f(u)du $ \\
+
+	\block[oledgreen]{Integration by parts}
+		$\displaystyle \int_a^b u(x)v'(x)dx = \left[ u(x)v(x) \right]_a^b - \int_a^b u'(x)v(x)dx $
+
+	$\displaystyle \int udv = uv - \int vdu$
+
+	\endblock
+	
+\end{topic}
+
+\begin{topic}{Complex identities}
+	$\displaystyle i = \sqrt{-1} \to z = a + bi = r e^{i\theta}$ \\
+	$\displaystyle e^{ix} = \cos(x) + i\sin(x)$
+
+	\block[oledgreen]{Complex Conjugates}
+	$z = a + ib \implies \left\{
+		\begin{aligned}
+			\overline{z} = z^*       &= a - ib \\
+			|z|       &= \sqrt{a^2 + b^2} \\
+			z \cdot z^*     &= a^2 + b^2
+		\end{aligned}
+	\right.$
+
+	\block[oledgreen]{Polar form}
+	$\displaystyle
+	\theta = \arg(z) \hspace{0.5em}, \hspace{0.5em} r = |z| \\
+	z = r(\cos\theta + i\sin\theta) = r e^{i\theta} \\ 
+	\left(  e^{i\theta} \right)^n = e^{in\theta} = \cos(n\theta) + i\sin(n\theta) \\ 
+	\sqrt[n]{z} = \sqrt[n]{r} e^{(\theta + 2k\pi)/n}  \\
+	= \sqrt[n]{r}\left( \cos\left(\frac{\theta + 2k\pi}n\right) + i \sin \left( \frac{\theta + 2k\pi}n \right) \right)
+	\qquad k \in \mathbb{Z},\ 0 \le k \le n-1
+	$
+
+	\block[oledgreen]{Trigonometric Identities}
+	$ \displaystyle \cos(\theta) = \Re \left( e^{i\theta} \right) = \frac{e^{i\theta} + e^{-i\theta}}2 $ \\ 
+	$ \displaystyle \sin(\theta) = \Im \left( e^{i\theta} \right) = \frac{e^{i\theta} - e^{-i\theta}}{2i} $
+	\endblock
+\end{topic}
