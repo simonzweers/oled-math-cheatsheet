@@ -7,6 +7,9 @@ on:
   pull_request:
   workflow_dispatch:
 
+env:
+  PDF_NAME: oled-math-cheatsheet
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -25,20 +28,21 @@ jobs:
       - name: Rename PDF with compile date
         run: |
           date_str="$(date +%d-%m-%Y)"
-          echo "PDF_NAME=oled-math-cheatsheet-${date_str}.pdf" >> "$GITHUB_ENV"
+          pdf_file="${PDF_NAME}-${date_str}.pdf"
+          echo "PDF_FILE=${pdf_file}" >> "$GITHUB_ENV"
           echo "RELEASE_TAG=${date_str}-${GITHUB_SHA::7}" >> "$GITHUB_ENV"
-          mv main.pdf "oled-math-cheatsheet-${date_str}.pdf"
+          mv main.pdf "${pdf_file}"
 
       - name: Upload PDF artifact
         uses: actions/upload-artifact@v4
         with:
-          name: ${{ env.PDF_NAME }}
-          path: ${{ env.PDF_NAME }}
+          name: ${{ env.PDF_FILE }}
+          path: ${{ env.PDF_FILE }}
 
       - name: Create release
         if: github.event_name == 'push' && github.ref == 'refs/heads/main'
         uses: softprops/action-gh-release@v2
         with:
           tag_name: ${{ env.RELEASE_TAG }}
-          name: ${{ env.PDF_NAME }}
-          files: ${{ env.PDF_NAME }}
+          name: ${{ env.PDF_FILE }}
+          files: ${{ env.PDF_FILE }}
